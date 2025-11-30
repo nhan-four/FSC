@@ -192,5 +192,5 @@ Xem `jupyter/README.md` de biet:
 
 ## Lien He
 
-- Author: [Your Name]
-- Email: [Your Email]
+- Author: ICN_lab
+- Email: 
