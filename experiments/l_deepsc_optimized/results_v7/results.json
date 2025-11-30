@@ -1,0 +1,12 @@
+{
+  "model": "L-DeepSC V7 Final",
+  "num_ensemble": 5,
+  "classification": {
+    "accuracy": 0.7087421452982031,
+    "f1_macro": 0.6177823807116277,
+    "f1_weighted": 0.6728450918559006,
+    "precision_macro": 0.6089336842390102,
+    "recall_macro": 0.8320224482535864
+  },
+  "timestamp": "2025-11-30T18:09:27.667097"
+}

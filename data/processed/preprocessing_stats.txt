@@ -1,0 +1,16 @@
+DATA PREPROCESSING SUMMARY
+==========================
+Original samples: 60000
+After dropna:     60000
+After range check:60000
+
+Semantic distribution:
+  - optimal                 :     34 ( 0.06%)
+  - water_deficit_acidic    :  11573 (19.29%)
+  - water_deficit_alkaline  :   7331 (12.22%)
+  - nutrient_deficiency     :  11646 (19.41%)
+  - fungal_risk             :   6787 (11.31%)
+  - acidic_soil             :   1427 ( 2.38%)
+  - alkaline_soil           :   1516 ( 2.53%)
+  - heat_stress             :   5037 ( 8.39%)
+  - other                   :  14649 (24.41%)

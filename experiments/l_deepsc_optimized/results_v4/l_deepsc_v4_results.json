@@ -1,0 +1,24 @@
+{
+  "model": "L-DeepSC V4 Optimized",
+  "classification": {
+    "accuracy": 0.6775438209679198,
+    "f1_macro": 0.5989046783485772,
+    "f1_weighted": 0.6273639882077237,
+    "precision_macro": 0.6183050254976837,
+    "recall_macro": 0.8175167424388796
+  },
+  "reconstruction": {
+    "overall_rmse": 2.083754023728831,
+    "per_sensor": {
+      "Moisture": 1.2449550388444564,
+      "pH": 0.12328749925490023,
+      "N": 3.978223652301913,
+      "Temperature": 1.3137978993838493,
+      "Humidity": 3.7585060288590366
+    }
+  },
+  "efficiency": {
+    "bandwidth_bytes": 128
+  },
+  "timestamp": "2025-11-30T13:28:32.097242"
+}

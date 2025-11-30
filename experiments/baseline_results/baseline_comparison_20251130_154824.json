@@ -1,0 +1,152 @@
+{
+  "Decision Tree": {
+    "accuracy": 0.7487597839267996,
+    "f1_macro": 0.7509164305710163,
+    "f1_weighted": 0.738906364601088,
+    "precision_macro": 0.7161015218265807,
+    "recall_macro": 0.8212431564990158,
+    "train_time_sec": 0.13683319091796875,
+    "inference_time_sec": 0.0008203983306884766,
+    "description": "Decision Tree with balanced class weights"
+  },
+  "Random Forest": {
+    "accuracy": 0.77213096681733,
+    "f1_macro": 0.7710928575683121,
+    "f1_weighted": 0.7551102803272148,
+    "precision_macro": 0.7438685292278212,
+    "recall_macro": 0.8494688967387037,
+    "train_time_sec": 0.7420909404754639,
+    "inference_time_sec": 0.044072628021240234,
+    "description": "Random Forest with 200 trees"
+  },
+  "Extra Trees": {
+    "accuracy": 0.760224892514607,
+    "f1_macro": 0.7460360843140373,
+    "f1_weighted": 0.7431377157931596,
+    "precision_macro": 0.7042805332288958,
+    "recall_macro": 0.8419223021521745,
+    "train_time_sec": 0.43676066398620605,
+    "inference_time_sec": 0.06422686576843262,
+    "description": "Extra Trees Classifier"
+  },
+  "Gradient Boosting": {
+    "accuracy": 0.7656267225223239,
+    "f1_macro": 0.730168237142355,
+    "f1_weighted": 0.7523306790934282,
+    "precision_macro": 0.7087726176318077,
+    "recall_macro": 0.7815955304092623,
+    "train_time_sec": 97.60267066955566,
+    "inference_time_sec": 0.19452381134033203,
+    "description": "Gradient Boosting Classifier"
+  },
+  "AdaBoost": {
+    "accuracy": 0.6944107595634439,
+    "f1_macro": 0.4206553300423702,
+    "f1_weighted": 0.6016854577709202,
+    "precision_macro": 0.3816589228568263,
+    "recall_macro": 0.49388149420352084,
+    "train_time_sec": 1.2070748805999756,
+    "inference_time_sec": 0.0380856990814209,
+    "description": "AdaBoost Classifier"
+  },
+  "XGBoost": {
+    "accuracy": 0.7648550325212214,
+    "f1_macro": 0.7530238401908278,
+    "f1_weighted": 0.7493776766541453,
+    "precision_macro": 0.7385750076050486,
+    "recall_macro": 0.8012187559180396,
+    "train_time_sec": 414.4509379863739,
+    "inference_time_sec": 0.0468447208404541,
+    "description": "XGBoost Classifier"
+  },
+  "LightGBM": {
+    "accuracy": 0.7591224782273178,
+    "f1_macro": 0.7688666215621807,
+    "f1_weighted": 0.747865951727413,
+    "precision_macro": 0.7399709877709826,
+    "recall_macro": 0.8369083329679675,
+    "train_time_sec": 630.893874168396,
+    "inference_time_sec": 0.06711101531982422,
+    "description": "LightGBM Classifier"
+  },
+  "SVM (RBF)": {
+    "accuracy": 0.7245066696064381,
+    "f1_macro": 0.6665922216351099,
+    "f1_weighted": 0.7028043321572801,
+    "precision_macro": 0.6238650465711378,
+    "recall_macro": 0.8336713267488652,
+    "train_time_sec": 11.714632511138916,
+    "inference_time_sec": 4.240923643112183,
+    "description": "Support Vector Machine with RBF kernel"
+  },
+  "SVM (Linear)": {
+    "accuracy": 0.6603461580862088,
+    "f1_macro": 0.5644518913048264,
+    "f1_weighted": 0.6427045881643112,
+    "precision_macro": 0.5390560999014037,
+    "recall_macro": 0.7895313185223098,
+    "train_time_sec": 13.8428475856781,
+    "inference_time_sec": 2.7526400089263916,
+    "description": "Support Vector Machine with Linear kernel"
+  },
+  "KNN": {
+    "accuracy": 0.6907727924153897,
+    "f1_macro": 0.6488886751743438,
+    "f1_weighted": 0.6786315942064213,
+    "precision_macro": 0.6359073850824539,
+    "recall_macro": 0.668128898712705,
+    "train_time_sec": 0.02049875259399414,
+    "inference_time_sec": 0.06798458099365234,
+    "description": "K-Nearest Neighbors (k=5)"
+  },
+  "Naive Bayes": {
+    "accuracy": 0.7230735310329622,
+    "f1_macro": 0.686697931245684,
+    "f1_weighted": 0.6953682578006928,
+    "precision_macro": 0.6761218518047452,
+    "recall_macro": 0.747742846361181,
+    "train_time_sec": 0.004780769348144531,
+    "inference_time_sec": 0.002640962600708008,
+    "description": "Gaussian Naive Bayes"
+  },
+  "Logistic Regression": {
+    "accuracy": 0.6299195237570279,
+    "f1_macro": 0.537886081825719,
+    "f1_weighted": 0.6168514633832932,
+    "precision_macro": 0.5152633899645593,
+    "recall_macro": 0.7541763601991751,
+    "train_time_sec": 0.31854915618896484,
+    "inference_time_sec": 0.0006787776947021484,
+    "description": "Logistic Regression (multinomial)"
+  },
+  "MLP": {
+    "accuracy": 0.7724616911035167,
+    "f1_macro": 0.716053171066718,
+    "f1_weighted": 0.7425746397752246,
+    "precision_macro": 0.7195613658366706,
+    "recall_macro": 0.7894130141659581,
+    "train_time_sec": 32.94381618499756,
+    "inference_time_sec": 0.01907968521118164,
+    "description": "Multi-Layer Perceptron (128-64-32)"
+  },
+  "FuzSemCom (Ours)": {
+    "accuracy": 0.9499,
+    "f1_macro": 0.9148,
+    "f1_weighted": 0.9505,
+    "precision_macro": 0.9246,
+    "recall_macro": 0.9152,
+    "description": "Fuzzy Semantic Communication (Proposed)",
+    "bandwidth_bytes": 2,
+    "requires_training": false
+  },
+  "L-DeepSC": {
+    "accuracy": 0.7763,
+    "f1_macro": 0.6329,
+    "f1_weighted": 0.7482,
+    "precision_macro": 0.6342,
+    "recall_macro": 0.7093,
+    "description": "Lite Deep Semantic Communication",
+    "bandwidth_bytes": 64,
+    "requires_training": true
+  }
+}

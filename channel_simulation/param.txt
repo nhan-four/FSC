@@ -1,0 +1,320 @@
+================================================================================
+CHANNEL SIMULATION PARAMETERS
+FuzSemCom - Semantic Communication System
+================================================================================
+Generated: 2024-11-30
+
+================================================================================
+1. AWGN CHANNEL PARAMETERS
+================================================================================
+
+Model: y = x + n, where n ~ N(0, sigma^2)
+
+Parameters:
+-----------
+snr_db (default): 10.0 dB
+  - Signal-to-Noise Ratio in dB
+  - Range: 0-30 dB (typical for simulation)
+
+No additional parameters required.
+
+================================================================================
+2. RAYLEIGH FADING CHANNEL PARAMETERS
+================================================================================
+
+Model: y = h * x + n, where h ~ CN(0, 1) -> |h| ~ Rayleigh
+
+Parameters:
+-----------
+snr_db (default): 10.0 dB
+  - Signal-to-Noise Ratio in dB
+  - Range: 0-30 dB
+
+num_taps (default): 1
+  - Number of multipath taps
+  - 1 = flat fading (no frequency selectivity)
+  - >1 = frequency-selective fading
+
+doppler_freq (default): 0.0 Hz
+  - Maximum Doppler frequency for time-varying channel
+  - 0.0 = static channel (block fading)
+  - >0 = time-varying channel (Jakes' model)
+
+sample_rate (default): 1.0 Hz
+  - Sample rate for Doppler simulation
+  - Used only when doppler_freq > 0
+
+Equalization:
+  - Method: MMSE (Minimum Mean Square Error)
+  - Alternative: ZF (Zero-Forcing)
+
+================================================================================
+3. RICIAN FADING CHANNEL PARAMETERS
+================================================================================
+
+Model: y = h * x + n
+       h = sqrt(K/(K+1)) * h_LOS + sqrt(1/(K+1)) * h_NLOS
+
+Parameters:
+-----------
+snr_db (default): 10.0 dB
+  - Signal-to-Noise Ratio in dB
+  - Range: 0-30 dB
+
+k_factor_db (default): 3.0 dB
+  - Rician K-factor in dB (ratio of LOS to NLOS power)
+  - K = 0 dB -> equal LOS and NLOS (approaches Rayleigh)
+  - K >> 0 -> strong LOS (approaches AWGN)
+  - Typical range: 0-20 dB
+
+doppler_freq (default): 0.0 Hz
+  - Maximum Doppler frequency
+  - 0.0 = static channel
+
+sample_rate (default): 1.0 Hz
+  - Sample rate for Doppler simulation
+
+Equalization:
+  - Method: MMSE (Minimum Mean Square Error)
+  - Alternative: ZF (Zero-Forcing)
+
+================================================================================
+4. LORA/LORAWAN CHANNEL PARAMETERS
+================================================================================
+
+Model: Combined path loss + shadowing + small-scale fading
+
+Physical Parameters:
+-------------------
+distance (default): 100.0 meters
+  - Distance between transmitter and receiver
+  - Range: 50-5000 meters (typical for IoT)
+  - Note: Adjusted dynamically based on target SNR in simulation
+
+sf (Spreading Factor) (default): 7
+  - LoRa Spreading Factor
+  - Range: 7-12
+  - Higher SF = longer range, lower data rate
+  - SF7: Fastest, shortest range
+  - SF12: Slowest, longest range
+
+bw (Bandwidth) (default): 125000 Hz (125 kHz)
+  - LoRa bandwidth
+  - Options: 125000, 250000, 500000 Hz
+  - Standard: 125 kHz (EU), 500 kHz (US)
+
+tx_power (default): 14.0 dBm
+  - Transmit power
+  - Range: 2-20 dBm (EU limit: 14 dBm)
+  - Typical: 14 dBm (25 mW)
+
+freq (default): 868e6 Hz (868 MHz)
+  - Carrier frequency
+  - EU band: 868 MHz
+  - US band: 915 MHz
+  - AS band: 433 MHz, 923 MHz
+
+environment (default): 'urban'
+  - Environment type
+  - Options: 'urban', 'suburban', 'rural', 'indoor'
+
+Path Loss Model (Log-distance):
+--------------------------------
+PL(d) = PL(d0) + 10*n*log10(d/d0)
+PL(d0) = 20*log10(4*pi*d0*f/c)  (Free-space path loss at d0)
+
+Path Loss Exponents (n):
+  - urban:    3.5
+  - suburban: 3.0
+  - rural:    2.5
+  - indoor:   4.0
+
+Reference Distance (d0): 1.0 meters
+
+Shadowing (Log-normal):
+-----------------------
+Standard Deviation (sigma, dB):
+  - urban:    8.0 dB
+  - suburban: 6.0 dB
+  - rural:    4.0 dB
+  - indoor:   10.0 dB
+
+Receiver Parameters:
+-------------------
+Noise Figure (NF): 6.0 dB
+  - Typical for LoRa receiver
+
+Noise Floor Calculation:
+  Noise_floor = -174 + 10*log10(BW) + NF
+  - Thermal noise: -174 dBm/Hz
+  - For 125 kHz: -174 + 10*log10(125000) + 6 = -111.03 dBm
+
+SNR Calculation:
+  SNR = Tx_power - Path_loss - Shadowing - Noise_floor
+
+LoRa Sensitivity (Receiver Sensitivity):
+----------------------------------------
+Sensitivity = -174 + 10*log10(BW) + NF + SNR_required
+
+Required SNR per Spreading Factor:
+  SF7:  -7.5 dB
+  SF8:  -10.0 dB
+  SF9:  -12.5 dB
+  SF10: -15.0 dB
+  SF11: -17.5 dB
+  SF12: -20.0 dB
+
+Time-on-Air (ToA) Parameters:
+-----------------------------
+preamble: 8 symbols (default)
+cr (Coding Rate): 1 (4/5) (default)
+de (Low Data Rate Optimize): 1 if SF >= 11, else 0
+h (Explicit Header): 0 (default)
+crc (CRC Enabled): 1 (default)
+
+ToA Calculation:
+  Ts = (2^SF) / BW
+  T_preamble = (preamble + 4.25) * Ts
+  T_payload = payload_symbols * Ts
+  ToA = T_preamble + T_payload
+
+Small-Scale Fading:
+-------------------
+Type: Rayleigh fading (NLOS)
+  - h = (h_real + j*h_imag) / sqrt(2)
+  - h_real, h_imag ~ N(0, 1)
+
+Equalization:
+  - Method: MMSE (Minimum Mean Square Error)
+  - Alternative: ZF (Zero-Forcing)
+
+Distance Mapping for SNR Sweep (Simulation):
+--------------------------------------------
+SNR (dB) -> Distance (meters):
+  0:  3000 m  (Very far -> low SNR)
+  5:  1500 m
+  10: 800 m
+  15: 400 m
+  20: 200 m
+  25: 100 m
+  30: 50 m    (Close -> high SNR)
+
+================================================================================
+5. SIMULATION PARAMETERS
+================================================================================
+
+SNR Range:
+----------
+snr_range = [0, 5, 10, 15, 20, 25, 30] dB
+
+Dataset:
+--------
+Source: data/processed/semantic_dataset_preprocessed.csv
+n_samples: 5000 (for full comparison)
+n_samples: 2000 (for quick test)
+
+Modulation:
+-----------
+Type: BPSK (Binary Phase Shift Keying)
+  - 0 -> -1
+  - 1 -> +1
+
+Semantic Symbol Encoding:
+-------------------------
+Format: 2 bytes
+  - Byte 0: class_id (0-7, 8 semantic classes)
+  - Byte 1: confidence_quantized (0-255, representing 0.0-1.0)
+Total: 16 bits per semantic symbol
+
+FuzSemCom Encoder:
+------------------
+Source: src/fuzzy_engine.py
+Semantic Classes: 8 classes
+  - 0: optimal
+  - 1: nutrient_deficiency
+  - 2: fungal_risk
+  - 3: water_deficit_acidic
+  - 4: water_deficit_alkaline
+  - 5: acidic_soil
+  - 6: alkaline_soil
+  - 7: heat_stress
+
+Metrics:
+--------
+- BER: Bit Error Rate
+- SER: Symbol Error Rate
+- Semantic Accuracy: Classification accuracy
+- Per-class Accuracy: Accuracy for each semantic class
+
+Equalization:
+-------------
+Default: MMSE (Minimum Mean Square Error)
+Alternative: ZF (Zero-Forcing)
+
+================================================================================
+6. CHANNEL COMPARISON CONFIGURATION
+================================================================================
+
+Channels Tested:
+----------------
+1. AWGN
+2. Rayleigh Fading
+3. Rician Fading (K=3 dB)
+4. LoRa/LoRaWAN
+
+Default Configuration:
+----------------------
+AWGN:
+  - snr_db: 10.0 dB
+
+Rayleigh:
+  - snr_db: 10.0 dB
+  - num_taps: 1
+  - doppler_freq: 0.0 Hz
+
+Rician:
+  - snr_db: 10.0 dB
+  - k_factor_db: 3.0 dB
+  - doppler_freq: 0.0 Hz
+
+LoRa:
+  - distance: 100-3000 m (adjusted per SNR)
+  - sf: 7
+  - bw: 125000 Hz
+  - tx_power: 14.0 dBm
+  - freq: 868e6 Hz
+  - environment: 'urban'
+
+================================================================================
+7. PHYSICAL CONSTANTS
+================================================================================
+
+Speed of Light (c): 3e8 m/s
+Thermal Noise: -174 dBm/Hz
+Boltzmann Constant: 1.38e-23 J/K
+Temperature: 290 K (17°C, typical for noise calculation)
+
+================================================================================
+8. REFERENCES
+================================================================================
+
+Path Loss Model:
+- Log-distance path loss model (standard wireless propagation)
+- Free-space path loss at reference distance
+
+Shadowing:
+- Log-normal shadowing (standard for wireless channels)
+
+LoRa Parameters:
+- LoRaWAN Specification v1.0.2 (LoRa Alliance)
+- SNR requirements per SF from LoRaWAN specification
+- Path loss exponents from empirical measurements
+
+Fading Models:
+- Rayleigh: Standard NLOS fading model
+- Rician: Standard LOS+NLOS fading model
+- Jakes' model for time-varying channels
+
+================================================================================
+END OF PARAMETERS DOCUMENT
+================================================================================

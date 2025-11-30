@@ -1,0 +1,18 @@
+{
+  "model": "L-DeepSC V5 Ensemble",
+  "num_models": 3,
+  "classification": {
+    "accuracy": 0.7451218167787454,
+    "f1_macro": 0.7071649178130959,
+    "f1_weighted": 0.7265158798987151,
+    "precision_macro": 0.6630025220515879,
+    "recall_macro": 0.8474705531133159
+  },
+  "reconstruction": {
+    "overall_rmse": 0.7132296532273248
+  },
+  "efficiency": {
+    "bandwidth_bytes": 256
+  },
+  "timestamp": "2025-11-30T16:09:53.073867"
+}
