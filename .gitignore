@@ -3,5 +3,5 @@ __pycache__/
 .env
 .venv
 results/
-data/raw/
+# data/raw/  # Uncomment to ignore raw data
 models/
