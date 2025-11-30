@@ -72,7 +72,7 @@ fuzsemcom_project/
 │   └── neural_decoder.h5
 │
 └── docs/                               # Tai lieu
-    ├── ICC_ENGLAND_2026.pdf
+    ├── ICC_ENGLAND_2026.pdf            # FuzSemCom Paper (ICC 2026)
     └── student_guide_2026.pdf
 ```
 
