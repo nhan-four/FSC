@@ -170,7 +170,7 @@ class FuzSemComChannelSystem:
         elif channel_type.lower() == 'rician':
             return RicianChannel(snr_db=snr_db, **kwargs)
         elif channel_type.lower() == 'lora':
-            return LoRaChannel(**kwargs)
+            return LoRaChannel(snr_db=snr_db, **kwargs)
         else:
             raise ValueError(f"Unknown channel: {channel_type}")
     
@@ -288,10 +288,8 @@ def compare_channels_and_encoders(
             if ch_type == 'rician':
                 kwargs['k_factor_db'] = 3.0
             elif ch_type == 'lora':
-                # For LoRa, adjust distance to achieve target SNR
-                # Short distance = high SNR, long distance = low SNR
-                distance_map = {0: 3000, 5: 1500, 10: 800, 15: 400, 20: 200, 25: 100, 30: 50}
-                kwargs['distance'] = distance_map.get(snr, 500)
+                # Fixed distance, SNR được điều khiển bằng snr_db
+                kwargs['distance'] = 500.0  # Fixed 500m
                 kwargs['sf'] = 7
                 kwargs['tx_power'] = 14.0
             

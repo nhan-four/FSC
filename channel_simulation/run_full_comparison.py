@@ -60,16 +60,8 @@ def run_full_comparison():
         'lora': {}  # Distance will be set per SNR
     }
     
-    # Distance mapping for LoRa to achieve approximate SNR
-    lora_distance_map = {
-        0: 3000,   # Very far -> low SNR
-        5: 1500,
-        10: 800,
-        15: 400,
-        20: 200,
-        25: 100,
-        30: 50     # Close -> high SNR
-    }
+    # Fixed distance for LoRa (SNR được điều khiển bằng snr_db)
+    LORA_FIXED_DISTANCE = 500.0  # meters
     
     results = {}
     
@@ -89,7 +81,7 @@ def run_full_comparison():
             # Special handling for LoRa
             if ch_type == 'lora':
                 ch_kwargs = {
-                    'distance': lora_distance_map.get(snr, 500),
+                    'distance': LORA_FIXED_DISTANCE,
                     'sf': 7,
                     'tx_power': 14.0
                 }
