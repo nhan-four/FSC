@@ -162,7 +162,7 @@ python l_deepsc_v7_final.py
 | AWGN | ~95% | ~0.001 |
 | Rayleigh | ~85% | ~0.05 |
 | Rician (K=3dB) | ~90% | ~0.02 |
-| LoRa (1km) | ~80% | ~0.08 |
+| LoRa (fixed distance) | ~80% | ~0.08 |
 
 ## Huong Dan Chi Tiet
 

@@ -1,0 +1,18 @@
+EXPLORATORY DATA ANALYSIS REPORT
+============================================================
+Dataset path: /home/nhannv02/Hello/fuzsemcom_project_readme/data/raw/Agriculture_dataset_with_metadata.csv
+Shape: 60000 rows × 24 columns
+Memory usage: 47.16 MB
+
+Missing values:
+  - Migration_Timestamp: 54065 (90.11%)
+  - NDVI: 30108 (50.18%)
+  - NDRE: 30108 (50.18%)
+  - RGB_Damage_Score: 29892 (49.82%)
+
+Sensor statistics:
+  Moisture: min=8.00, max=38.00, mean=23.00, std=8.67
+  pH: min=5.00, max=8.00, mean=6.50, std=0.87
+  N: min=15.00, max=74.00, mean=44.40, std=17.35
+  Temperature: min=18.00, max=42.00, mean=30.01, std=6.95
+  Humidity: min=25.00, max=95.00, mean=60.00, std=20.13

@@ -1,0 +1,91 @@
+{
+  "shape": [
+    60000,
+    24
+  ],
+  "columns": [
+    "Zone_ID",
+    "Image_Source_ID",
+    "Image_Type",
+    "NDVI",
+    "NDRE",
+    "RGB_Damage_Score",
+    "UAV_Timestamp",
+    "N",
+    "P",
+    "K",
+    "Moisture",
+    "pH",
+    "Temperature",
+    "Humidity",
+    "NDI_Label",
+    "PDI_Label",
+    "Semantic_Tag",
+    "Action_Suggested",
+    "Energy_Consumed_mAh",
+    "Latency_ms",
+    "Current_Node",
+    "Migrated_To",
+    "Migration_Required",
+    "Migration_Timestamp"
+  ],
+  "memory_mb": 47.16,
+  "missing": {
+    "Migration_Timestamp": 54065,
+    "NDVI": 30108,
+    "NDRE": 30108,
+    "RGB_Damage_Score": 29892
+  },
+  "stats": {
+    "Moisture": {
+      "count": 60000.0,
+      "mean": 23.000996833333335,
+      "std": 8.671952965208806,
+      "min": 8.0,
+      "25%": 15.45,
+      "50%": 23.04,
+      "75%": 30.5,
+      "max": 38.0
+    },
+    "pH": {
+      "count": 60000.0,
+      "mean": 6.502080666666666,
+      "std": 0.8657732652848571,
+      "min": 5.0,
+      "25%": 5.75,
+      "50%": 6.5,
+      "75%": 7.25,
+      "max": 8.0
+    },
+    "N": {
+      "count": 60000.0,
+      "mean": 44.39803333333333,
+      "std": 17.35491062151959,
+      "min": 15.0,
+      "25%": 29.0,
+      "50%": 44.0,
+      "75%": 59.0,
+      "max": 74.0
+    },
+    "Temperature": {
+      "count": 60000.0,
+      "mean": 30.010243166666665,
+      "std": 6.946909799217631,
+      "min": 18.0,
+      "25%": 23.98,
+      "50%": 30.0,
+      "75%": 36.06,
+      "max": 42.0
+    },
+    "Humidity": {
+      "count": 60000.0,
+      "mean": 60.003572166666665,
+      "std": 20.12955880623288,
+      "min": 25.0,
+      "25%": 42.58,
+      "50%": 59.97,
+      "75%": 77.37,
+      "max": 95.0
+    }
+  }
+}

@@ -1,0 +1,144 @@
+================================================================================
+KET QUA SO SANH L-DeepSC vs FuzSemCom
+================================================================================
+
+Ngay chay: 2025-11-30
+Dataset: Agriculture Sensor Data (5 sensors)
+Train: 36,280 samples | Test: 9,071 samples
+SNR: 10.0 dB | Epochs: 100
+
+================================================================================
+1. METRICS PHAN LOAI (Classification Metrics)
+================================================================================
+
+                    L-DeepSC    FuzSemCom    Winner
+----------------------------------------------------
+Accuracy             77.63%      94.99%      FuzSemCom
+F1 (macro)           0.6329      0.9148      FuzSemCom
+F1 (weighted)        0.7482      0.9505      FuzSemCom
+Precision (macro)    0.6342      0.9246     FuzSemCom
+Recall (macro)       0.7093      0.9152      FuzSemCom
+
+Ket luan: FuzSemCom thang ro ret ve do chinh xac phan loai (+17.36%)
+
+================================================================================
+2. METRICS TAI TAO DU LIEU (Reconstruction Metrics)
+================================================================================
+
+L-DeepSC - Theo tung sensor:
+----------------------------------------------------
+Sensor          RMSE      MAE       R2 Score
+----------------------------------------------------
+Moisture        3.1387    2.3662    0.8697
+pH              0.3586    0.2692    0.8580
+N               6.4710    4.9404    0.8633
+Temperature     2.5365    1.9309    0.8683
+Humidity        7.6054    5.8454    0.8575
+----------------------------------------------------
+OVERALL         4.0220    3.0704    0.8634
+
+FuzSemCom - Uoc luong:
+----------------------------------------------------
+Sensor          RMSE (uoc luong)
+----------------------------------------------------
+Moisture        ~7.0
+pH              ~0.6
+N               ~17.0
+Temperature     ~6.5
+Humidity        ~18.8
+----------------------------------------------------
+OVERALL         ~10.0
+
+Ket luan: L-DeepSC thang ve kha nang tai tao du lieu (RMSE 4.02 vs 10.0)
+
+================================================================================
+3. METRICS HIEU SUAT (Efficiency Metrics)
+================================================================================
+
+                    L-DeepSC    FuzSemCom    Winner
+----------------------------------------------------
+Bandwidth           64 bytes    2 bytes      FuzSemCom
+Compression Ratio   0.31x       10.0x        FuzSemCom
+Latency             1.44 ms     < 1 ms       FuzSemCom
+Hardware            GPU         CPU          FuzSemCom
+
+Ket luan: FuzSemCom tiet kiem bang thong hon 32 lan (2 bytes vs 64 bytes)
+
+================================================================================
+4. BANG TONG HOP
+================================================================================
+
+Tieu chi              L-DeepSC    FuzSemCom    Winner
+--------------------------------------------------------
+Classification Acc    77.63%      94.99%       FuzSemCom
+F1 Score (macro)     0.6329      0.9148       FuzSemCom
+Precision (macro)    0.6342      0.9246       FuzSemCom
+Recall (macro)       0.7093      0.9152       FuzSemCom
+Reconstruction RMSE  4.02        10.0         L-DeepSC
+Bandwidth            64 bytes    2 bytes      FuzSemCom
+Compression Ratio    0.31x       10.0x        FuzSemCom
+Latency              1.44 ms     < 1 ms       FuzSemCom
+Hardware             GPU         CPU          FuzSemCom
+IoT Suitability      Trung binh  Cao          FuzSemCom
+
+================================================================================
+5. KET LUAN
+================================================================================
+
+FuzSemCom thang 7/10 tieu chi so sanh:
+- Classification accuracy: +17.36%
+- Bandwidth efficiency: 32x tot hon
+- IoT suitability: CPU-only, nhe, tiet kiem nang luong
+
+L-DeepSC thang ve reconstruction quality:
+- RMSE 4.02 vs 10.0 (tot hon 2.5 lan)
+- Phu hop cho ung dung can tai tao du lieu chinh xac
+
+Ung dung phu hop:
+- L-DeepSC: Can tai tao du lieu goc voi do chinh xac cao, co du tai nguyen
+- FuzSemCom: Uu tien phan loai semantic chinh xac, tiet kiem bang thong/nang luong, IoT
+
+================================================================================
+6. CHI TIET KY THUAT
+================================================================================
+
+L-DeepSC Configuration:
+- Input dimension: 5 (sensors)
+- Latent dimension: 16
+- Channel dimension: 16
+- SNR: 10.0 dB
+- Optimizer: Adam (lr=0.001)
+- Batch size: 64
+- Epochs: 100
+- Loss: MSE (reconstruction) + CrossEntropy (classification)
+
+FuzSemCom Configuration:
+- Input: 5 sensors
+- Output: 2 bytes (1 byte ID + 1 byte confidence)
+- Encoder: Fuzzy Semantic Encoder
+- Decoder: Neural Decoder (LSTM/Ensemble)
+- Classification: Rule-based tu semantic symbols
+
+Dataset:
+- Tong so mau: 45,351
+- Train: 36,280 (80%)
+- Test: 9,071 (20%)
+- Sensors: Moisture, pH, N, Temperature, Humidity
+- Semantic classes: 8 classes
+
+================================================================================
+7. FILES KET QUA
+================================================================================
+
+- l_deepsc_results.json: Ket qua chi tiet L-DeepSC
+- comparison_with_fuzsemcom.json: So sanh day du
+- l_deepsc_training_results.png: Bieu do training history
+- l_deepsc_model.pth: Model weights da train
+- DETAILED_RESULTS.md: Ket qua chi tiet (Markdown)
+- README.md: Huong dan va giai thich
+- RESULTS_SUMMARY.txt: File nay (Text)
+
+================================================================================
+END OF REPORT
+================================================================================
+

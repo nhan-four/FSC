@@ -1,0 +1,63 @@
+{
+  "model": "L-DeepSC",
+  "config": {
+    "snr_db": 10.0,
+    "latent_dim": 16,
+    "chan_dim": 16,
+    "num_epochs": 100
+  },
+  "reconstruction": {
+    "per_variable": {
+      "Moisture": {
+        "rmse": 3.1386831172986276,
+        "mae": 2.3661961555480957,
+        "r2": 0.8696957230567932
+      },
+      "pH": {
+        "rmse": 0.3586059510060618,
+        "mae": 0.2691546678543091,
+        "r2": 0.8580009341239929
+      },
+      "N": {
+        "rmse": 6.470983736935339,
+        "mae": 4.940399646759033,
+        "r2": 0.8632900714874268
+      },
+      "Temperature": {
+        "rmse": 2.536516433039965,
+        "mae": 1.9308642148971558,
+        "r2": 0.8682721853256226
+      },
+      "Humidity": {
+        "rmse": 7.605382729755581,
+        "mae": 5.845394611358643,
+        "r2": 0.8575436472892761
+      }
+    },
+    "overall": {
+      "rmse": 4.022034393607115,
+      "mae": 3.0704018592834474,
+      "r2": 0.8633605122566224
+    }
+  },
+  "classification": {
+    "before_channel": {
+      "accuracy": 0.7763201411090288,
+      "f1_macro": 0.6329092688722975,
+      "f1_weighted": 0.7481734935729965,
+      "precision_macro": 0.634234274598102,
+      "recall_macro": 0.7092692061719514
+    },
+    "after_channel": {
+      "accuracy": 0.1837724616911035,
+      "f1_macro": 0.0871179721285567
+    }
+  },
+  "efficiency": {
+    "bandwidth_bytes_per_sample": 64,
+    "original_bytes_per_sample": 20,
+    "compression_ratio": 0.3125,
+    "avg_inference_time_ms": 1.4362335205078125
+  },
+  "timestamp": "2025-11-30T10:21:03.320294"
+}

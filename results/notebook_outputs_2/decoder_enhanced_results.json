@@ -1,0 +1,37 @@
+{
+  "approach": "Enhanced Decoder with NDI/PDI Labels",
+  "features": "8 (symbol) + 1 (conf) + 3 (NDI) + 3 (PDI)",
+  "best_model": "RandomForest (Enhanced)",
+  "results": {
+    "XGBoost (Enhanced)": {
+      "overall_rmse": 10.295296417427386,
+      "per_variable_rmse": {
+        "Moisture": 7.167887879316289,
+        "pH": 0.6133569398814843,
+        "N": 17.479738308430417,
+        "Temperature": 6.669970408744583,
+        "Humidity": 19.545528550764157
+      }
+    },
+    "RandomForest (Enhanced)": {
+      "overall_rmse": 10.082708160600035,
+      "per_variable_rmse": {
+        "Moisture": 7.082484991183618,
+        "pH": 0.6039085601527335,
+        "N": 17.131415376314315,
+        "Temperature": 6.509788213541647,
+        "Humidity": 19.085943661807857
+      }
+    },
+    "Baseline (Centroid)": {
+      "overall_rmse": 10.169165295975837,
+      "per_variable_rmse": {
+        "Moisture": 7.398424639607773,
+        "pH": 0.6102656434981747,
+        "N": 17.36575283770346,
+        "Temperature": 6.530024905663312,
+        "Humidity": 18.941358453406465
+      }
+    }
+  }
+}

@@ -136,10 +136,15 @@ K: Rician K-factor (LOS/NLOS power ratio)
 - `k_factor_db`: Rician K-factor (dB)
 
 ### LoRa
-- `distance`: Khoang cach (m)
+- `snr_db`: SNR muc tieu (dB) – dung khi sweep SNR
+- `distance`: Khoang cach (m) – thuong giu co dinh khi sweep SNR (vd: 500m)
 - `sf`: Spreading Factor (7-12)
 - `bw`: Bandwidth (125kHz, 250kHz, 500kHz)
 - `tx_power`: Cong suat phat (dBm)
+
+> Luu y: Cac bang ket qua o tren duoc lay tu mot lan chay cu the
+> voi cau hinh sweep SNR (0–30 dB). Neu thay doi cau hinh (vd: fixed
+> distance khac cho LoRa) thi so lieu co the thay doi nhe.
 
 ## Tham Khao
 

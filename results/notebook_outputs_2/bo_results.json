@@ -1,0 +1,12 @@
+{
+  "optimized_accuracy": 0.9990839694656488,
+  "best_params": {
+    "moisture_ideal_width": 13,
+    "ph_ideal_center": 6.390533083769312
+  },
+  "search_space": {
+    "moisture_width": "[10, 30]",
+    "ph_center": "[6.0, 6.6]"
+  },
+  "method": "Bayesian Optimization (Gaussian Process) on Membership Functions"
+}
