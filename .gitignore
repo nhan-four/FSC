@@ -2,6 +2,10 @@ __pycache__/
 *.pyc
 .env
 .venv
+
+# Ignore global results, nhưng vẫn cho phép một số thư mục con nếu cần
 results/
+!channel_simulation/results/
+
 # data/raw/  # Uncomment to ignore raw data
 models/
