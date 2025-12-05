@@ -30,6 +30,10 @@ experiments/
 │   ├── l_deepsc_v7_final.py        # V7 - Final version
 │   └── results_*/                  # Ket qua tung version
 │
+├── l_deepsc_system_opt/            # System-level optimization (channel-aware)
+│   ├── l_deepsc_system_optimization.py   # Train channel-aware, repetition coding
+│   └── results/                    # Ket qua system-opt
+│
 └── 2007.11095v3.pdf                # L-DeepSC paper
 ```
 
@@ -57,6 +61,21 @@ python l_deepsc_compare.py
 - `results/l_deepsc_comparison/l_deepsc_results.json`
 - `results/l_deepsc_comparison/comparison_with_fuzsemcom.json`
 - `results/l_deepsc_comparison/l_deepsc_training_results.png`
+
+### 2b. L-DeepSC System-Level Optimization (moi, channel-aware)
+```bash
+cd l_deepsc_system_opt
+python l_deepsc_system_optimization.py
+```
+
+**Output:**
+- `experiments/l_deepsc_system_opt/results/l_deepsc_system_opt_results.json`
+- `experiments/l_deepsc_system_opt/results/l_deepsc_system_opt_results.png`
+- `experiments/l_deepsc_system_opt/results/l_deepsc_system_opt_model.pth`
+
+**Ghi chu nhanh:**
+- Train channel-aware (SNR sweep 0–30 dB) + repetition coding (3x)
+- Accuracy sau kenh @10 dB ~74% (tang ro rang so voi ~18% ban dau), nhung bandwidth cao (~384 bytes)
 
 ### 3. L-DeepSC Optimized
 ```bash

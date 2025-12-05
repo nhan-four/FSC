@@ -87,6 +87,7 @@ fuzsemcom_project/
 - **Vi tri**: `experiments/l_deepsc_optimized/`
 - **Mo ta**: Lite Deep Semantic Communication - deep learning based
 - **Ket qua**: Accuracy ~70-77%, Bandwidth 64-128 bytes/sample
+- **System-level Opt (moi)**: `experiments/l_deepsc_system_opt/` — channel-aware training + repetition coding, accuracy sau kenh ~74-75% @10 dB (nhung bandwidth cao ~384 bytes)
 
 ### 3. Channel Simulation [MOI]
 - **Vi tri**: `channel_simulation/`
@@ -163,6 +164,7 @@ python l_deepsc_v7_final.py
 | Rayleigh | ~85% | ~0.05 |
 | Rician (K=3dB) | ~90% | ~0.02 |
 | LoRa (fixed distance) | ~80% | ~0.08 |
+| L-DeepSC System Opt (after channel) | ~74% | n/a |
 
 ## Huong Dan Chi Tiet
 
